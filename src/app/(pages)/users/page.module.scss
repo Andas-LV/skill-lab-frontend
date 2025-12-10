@@ -1,0 +1,143 @@
+.container {
+	max-width: 1280px;
+	margin: 0 auto;
+	padding: 2rem 1rem;
+
+	@media (max-width: 768px) {
+		padding: 1rem;
+	}
+}
+
+.headerIcon {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 3rem;
+	height: 3rem;
+	border-radius: 0.5rem;
+	background-color: hsl(var(--primary) / 0.1);
+	color: hsl(var(--primary));
+}
+
+.grid {
+	display: grid;
+	gap: 1.5rem;
+
+	@media (min-width: 768px) {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+
+	@media (min-width: 1024px) {
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+	}
+}
+
+.card {
+	border-radius: 0.5rem;
+	border: 1px solid hsl(var(--border));
+	background-color: hsl(var(--card));
+	padding: 1.5rem;
+	box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+	transition: box-shadow 0.2s ease-in-out;
+
+	&:hover {
+		box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+	}
+}
+
+.cardHeader {
+	display: flex;
+	align-items: flex-start;
+	gap: 1rem;
+	margin-bottom: 1rem;
+	padding-bottom: 1rem;
+	border-bottom: 1px solid hsl(var(--border));
+}
+
+.avatar {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 3rem;
+	height: 3rem;
+	border-radius: 9999px;
+	background-color: hsl(var(--primary) / 0.1);
+	color: hsl(var(--primary));
+	flex-shrink: 0;
+}
+
+.userInfo {
+	flex: 1;
+	min-width: 0;
+}
+
+.userName {
+	font-size: 1.125rem;
+	line-height: 1.75rem;
+	font-weight: 600;
+	margin-bottom: 0.5rem;
+	word-break: break-word;
+}
+
+.userMeta {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+}
+
+.roleAdmin,
+.roleTeacher,
+.roleUser {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.25rem;
+	padding: 0.25rem 0.75rem;
+	border-radius: 9999px;
+	font-size: 0.75rem;
+	line-height: 1rem;
+	font-weight: 500;
+}
+
+.roleAdmin {
+	background-color: hsl(var(--destructive) / 0.1);
+	color: hsl(var(--destructive));
+}
+
+.roleTeacher {
+	background-color: hsl(var(--primary) / 0.1);
+	color: hsl(var(--primary));
+}
+
+.roleUser {
+	background-color: hsl(var(--muted));
+	color: hsl(var(--muted-foreground));
+}
+
+.cardContent {
+	display: flex;
+	flex-direction: column;
+	gap: 0.75rem;
+}
+
+.infoItem {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	font-size: 0.875rem;
+	line-height: 1.25rem;
+}
+
+.infoLabel {
+	font-weight: 500;
+	color: hsl(var(--muted-foreground));
+}
+
+.infoValue {
+	color: hsl(var(--foreground));
+	word-break: break-word;
+}
+
+.backButton {
+	margin-top: 1rem;
+}
+

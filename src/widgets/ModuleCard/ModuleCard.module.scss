@@ -1,0 +1,53 @@
+.card {
+	position: relative;
+	display: block;
+	border-radius: 0.5rem;
+	border: 1px solid hsl(var(--border));
+	background-color: hsl(var(--card));
+	padding: 1.5rem;
+	box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+	transition: box-shadow 0.2s ease-in-out;
+	text-decoration: none;
+	color: inherit;
+
+	&:hover {
+		box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+	}
+}
+
+.content {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}
+
+.title {
+	font-size: 1.25rem;
+	line-height: 1.75rem;
+	font-weight: 600;
+}
+
+.lessons {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+}
+
+.lessonsTitle {
+	font-size: 0.875rem;
+	line-height: 1.25rem;
+	font-weight: 500;
+	color: hsl(var(--muted-foreground));
+}
+
+.lessonsList {
+	display: flex;
+	flex-direction: column;
+	gap: 0.25rem;
+}
+
+.lessonItem {
+	font-size: 0.875rem;
+	line-height: 1.25rem;
+	color: hsl(var(--muted-foreground));
+}

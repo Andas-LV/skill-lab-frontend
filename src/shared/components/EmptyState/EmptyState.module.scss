@@ -1,0 +1,8 @@
+.container {
+	border-radius: 0.5rem;
+	border: 1px solid hsl(var(--border));
+	background-color: hsl(var(--card));
+	padding: 2rem;
+	text-align: center;
+	color: hsl(var(--muted-foreground));
+}

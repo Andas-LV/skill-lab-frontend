@@ -1,0 +1,24 @@
+.container {
+	margin-bottom: 1.5rem;
+}
+
+.content {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.title {
+	font-size: 1.875rem;
+	line-height: 2.25rem;
+	font-weight: 700;
+}
+
+.description {
+	color: hsl(var(--muted-foreground));
+}
+
+.action {
+	display: flex;
+	align-items: center;
+}
