@@ -5,8 +5,10 @@ import { useState, forwardRef } from "react";
 import { Eye, EyeOff } from "lucide-react";
 import styles from "./input.module.scss";
 
-export interface CustomInputProps
-	extends Omit<React.InputHTMLAttributes<HTMLInputElement>, "type"> {
+export interface CustomInputProps extends Omit<
+	React.InputHTMLAttributes<HTMLInputElement>,
+	"type"
+> {
 	label?: string;
 	required?: boolean;
 	error?: string;

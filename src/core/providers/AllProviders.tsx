@@ -8,9 +8,5 @@ export function AllProviders({
 }: Readonly<{
 	children: React.ReactNode;
 }>) {
-	return (
-		<ThemeProvider>
-			{children}
-		</ThemeProvider>
-	);
+	return <ThemeProvider>{children}</ThemeProvider>;
 }

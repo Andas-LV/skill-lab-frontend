@@ -20,7 +20,9 @@ type UpdateCourseResponse =
 	paths["/courses/{id}"]["patch"]["responses"]["200"]["content"]["application/json"];
 
 export const courseService = {
-	create: async (course: CreateCourseRequest): Promise<CreateCourseResponse> => {
+	create: async (
+		course: CreateCourseRequest,
+	): Promise<CreateCourseResponse> => {
 		const { data, error, response } = await openApiClient.POST("/courses/add", {
 			body: course,
 		});
@@ -88,12 +90,15 @@ export const courseService = {
 		id: number,
 		course: UpdateCourseRequest,
 	): Promise<UpdateCourseResponse> => {
-		const { data, error, response } = await openApiClient.PATCH("/courses/{id}", {
-			params: {
-				path: { id },
+		const { data, error, response } = await openApiClient.PATCH(
+			"/courses/{id}",
+			{
+				params: {
+					path: { id },
+				},
+				body: course,
 			},
-			body: course,
-		});
+		);
 
 		if (error) {
 			throw new Error(
@@ -126,4 +131,3 @@ export const courseService = {
 		}
 	},
 };
-

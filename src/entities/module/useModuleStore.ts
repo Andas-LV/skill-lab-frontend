@@ -28,9 +28,7 @@ export const useModuleStore = create<ModuleState>((set) => ({
 		} catch (error) {
 			set({
 				error:
-					error instanceof Error
-						? error.message
-						: "Failed to fetch modules",
+					error instanceof Error ? error.message : "Failed to fetch modules",
 				isLoading: false,
 			});
 		}
@@ -38,4 +36,3 @@ export const useModuleStore = create<ModuleState>((set) => ({
 
 	clearError: () => set({ error: null }),
 }));
-

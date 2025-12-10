@@ -36,4 +36,3 @@ export function CategoryFilter({ value, onChange }: CategoryFilterProps) {
 		</div>
 	);
 }
-

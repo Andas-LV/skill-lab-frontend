@@ -1,7 +1,8 @@
 import { openApiClient } from "@/shared/api/openApiFetch";
 import type { paths } from "@/shared/types/api-schema";
 
-type LoginRequest = paths["/auth/login"]["post"]["requestBody"]["content"]["application/json"];
+type LoginRequest =
+	paths["/auth/login"]["post"]["requestBody"]["content"]["application/json"];
 type LoginResponse =
 	paths["/auth/login"]["post"]["responses"]["200"]["content"]["application/json"];
 
@@ -26,4 +27,3 @@ export const authService = {
 		return data;
 	},
 };
-

@@ -5,10 +5,5 @@ interface LoadingStateProps {
 }
 
 export function LoadingState({ message = "Загрузка..." }: LoadingStateProps) {
-	return (
-		<div className={styles.container}>
-			{message}
-		</div>
-	);
+	return <div className={styles.container}>{message}</div>;
 }
-

@@ -5,10 +5,5 @@ interface ErrorStateProps {
 }
 
 export function ErrorState({ message }: ErrorStateProps) {
-	return (
-		<div className={styles.container}>
-			Ошибка: {message}
-		</div>
-	);
+	return <div className={styles.container}>Ошибка: {message}</div>;
 }
-

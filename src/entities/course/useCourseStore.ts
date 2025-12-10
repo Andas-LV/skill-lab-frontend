@@ -11,10 +11,7 @@ interface CourseState {
 	isCreating: boolean;
 	error: string | null;
 	fetchCourses: (category?: CourseCategoryType) => Promise<void>;
-	createCourse: (
-		data: CourseFormData,
-		onSuccess?: () => void,
-	) => Promise<void>;
+	createCourse: (data: CourseFormData, onSuccess?: () => void) => Promise<void>;
 	clearError: () => void;
 }
 
@@ -32,9 +29,7 @@ export const useCourseStore = create<CourseState>((set) => ({
 		} catch (error) {
 			set({
 				error:
-					error instanceof Error
-						? error.message
-						: "Failed to fetch courses",
+					error instanceof Error ? error.message : "Failed to fetch courses",
 				isLoading: false,
 			});
 		}
@@ -80,4 +75,3 @@ export const useCourseStore = create<CourseState>((set) => ({
 
 	clearError: () => set({ error: null }),
 }));
-

@@ -1,6 +1,10 @@
 import { create } from "zustand";
 import type { SchemaUser } from "@/shared/types/api-schema";
-import { setAuthToken, removeAuthToken, getAuthToken } from "@/core/config/cookie";
+import {
+	setAuthToken,
+	removeAuthToken,
+	getAuthToken,
+} from "@/core/config/cookie";
 import { userService } from "./userService";
 
 interface UserState {
@@ -42,10 +46,7 @@ export const useUserStore = create<UserState>((set) => ({
 			set({ user, isAuthenticated: true, isLoading: false, error: null });
 		} catch (error) {
 			set({
-				error:
-					error instanceof Error
-						? error.message
-						: "Failed to fetch user",
+				error: error instanceof Error ? error.message : "Failed to fetch user",
 				isLoading: false,
 				isAuthenticated: false,
 				user: null,
@@ -60,4 +61,3 @@ export const useUserStore = create<UserState>((set) => ({
 
 	clearError: () => set({ error: null }),
 }));
-

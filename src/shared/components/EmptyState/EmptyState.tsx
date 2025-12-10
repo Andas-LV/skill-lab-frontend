@@ -5,10 +5,5 @@ interface EmptyStateProps {
 }
 
 export function EmptyState({ message }: EmptyStateProps) {
-	return (
-		<div className={styles.container}>
-			{message}
-		</div>
-	);
+	return <div className={styles.container}>{message}</div>;
 }
-

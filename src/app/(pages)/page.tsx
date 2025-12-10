@@ -34,8 +34,8 @@ export default function Home() {
 							<span className={styles.titleAccent}>онлайн курсы</span>
 						</h1>
 						<p className={styles.description}>
-							Платформа для создания и изучения образовательных курсов и модулей.
-							Развивайте свои навыки вместе с нами.
+							Платформа для создания и изучения образовательных курсов и
+							модулей. Развивайте свои навыки вместе с нами.
 						</p>
 						<div className={styles.actions}>
 							<Button asChild size="lg" className={styles.primaryButton}>
@@ -71,7 +71,9 @@ export default function Home() {
 							</div>
 							<div className={styles.statContent}>
 								<div className={styles.statValue}>Модули</div>
-								<div className={styles.statLabel}>Образовательных материалов</div>
+								<div className={styles.statLabel}>
+									Образовательных материалов
+								</div>
 							</div>
 						</div>
 						<div className={styles.statCard}>
@@ -126,7 +128,9 @@ export default function Home() {
 								</div>
 								<div className={styles.benefitItem}>
 									<CheckCircle2 className="size-5" />
-									<span>Гибкая система модулей для структурирования обучения</span>
+									<span>
+										Гибкая система модулей для структурирования обучения
+									</span>
 								</div>
 								<div className={styles.benefitItem}>
 									<CheckCircle2 className="size-5" />

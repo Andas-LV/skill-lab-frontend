@@ -18,8 +18,9 @@ import styles from "./page.module.scss";
 
 export default function CoursesPage() {
 	const { courses, isLoading, error, fetchCourses } = useCourseStore();
-	const [selectedCategory, setSelectedCategory] =
-		useState<CourseCategoryType>(CourseCategory.ALL);
+	const [selectedCategory, setSelectedCategory] = useState<CourseCategoryType>(
+		CourseCategory.ALL,
+	);
 
 	useEffect(() => {
 		fetchCourses();
@@ -27,9 +28,7 @@ export default function CoursesPage() {
 
 	const handleCategoryChange = (category: CourseCategoryType) => {
 		setSelectedCategory(category);
-		fetchCourses(
-			category === CourseCategory.ALL ? undefined : category,
-		);
+		fetchCourses(category === CourseCategory.ALL ? undefined : category);
 	};
 
 	return (

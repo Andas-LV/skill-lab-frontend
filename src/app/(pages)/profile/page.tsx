@@ -29,10 +29,7 @@ export default function ProfilePage() {
 		<>
 			<Navbar />
 			<div className={styles.container}>
-				<PageHeader
-					title="Профиль"
-					description="Информация о вашем аккаунте"
-				/>
+				<PageHeader title="Профиль" description="Информация о вашем аккаунте" />
 
 				{isLoading ? (
 					<LoadingState message="Загрузка профиля..." />

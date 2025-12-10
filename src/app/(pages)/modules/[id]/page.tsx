@@ -83,8 +83,7 @@ export default function ModuleDetailPage() {
 				setModuleData(module);
 				reset({
 					title: module.title || "",
-					children:
-						module.children?.map((child) => ({ value: child })) || [],
+					children: module.children?.map((child) => ({ value: child })) || [],
 				});
 			} catch (err) {
 				setError(
@@ -257,8 +256,8 @@ export default function ModuleDetailPage() {
 								</h3>
 								<p className={styles.deleteConfirmText}>
 									Вы уверены, что хотите удалить этот модуль? Это действие
-									нельзя отменить. Модуль нельзя удалить, если он используется
-									в курсах.
+									нельзя отменить. Модуль нельзя удалить, если он используется в
+									курсах.
 								</p>
 								<div className={styles.deleteConfirmActions}>
 									<Button
@@ -284,4 +283,3 @@ export default function ModuleDetailPage() {
 		</>
 	);
 }
-

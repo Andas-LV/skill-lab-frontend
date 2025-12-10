@@ -17,7 +17,10 @@ import {
 	SelectTrigger,
 	SelectValue,
 } from "@/shared/components/ui/select";
-import { courseSchema, type CourseFormData } from "@/entities/course/courseSchema";
+import {
+	courseSchema,
+	type CourseFormData,
+} from "@/entities/course/courseSchema";
 import { useCourseStore } from "@/entities/course/useCourseStore";
 import { useModuleStore } from "@/entities/module/useModuleStore";
 import { CourseCategory } from "@/shared/types/enums";
@@ -91,9 +94,7 @@ export default function CreateCoursePage() {
 			<div className="space-y-6 rounded-lg border bg-card p-6 shadow-sm">
 				<div className="space-y-2">
 					<h1 className="text-2xl font-bold">Создание курса</h1>
-					<p className="text-muted-foreground">
-						Заполните информацию о курсе
-					</p>
+					<p className="text-muted-foreground">Заполните информацию о курсе</p>
 				</div>
 
 				<form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
@@ -148,7 +149,9 @@ export default function CreateCoursePage() {
 							</SelectTrigger>
 							<SelectContent>
 								<SelectItem value={CourseCategory.ALL}>Все</SelectItem>
-								<SelectItem value={CourseCategory.FRONTEND}>Frontend</SelectItem>
+								<SelectItem value={CourseCategory.FRONTEND}>
+									Frontend
+								</SelectItem>
 								<SelectItem value={CourseCategory.BACKEND}>Backend</SelectItem>
 								<SelectItem value={CourseCategory.MOBILE}>Mobile</SelectItem>
 								<SelectItem value={CourseCategory.DESIGN}>Design</SelectItem>
@@ -205,7 +208,9 @@ export default function CreateCoursePage() {
 					<div className="space-y-4">
 						<Label>Модули курса</Label>
 						{modulesLoading ? (
-							<p className="text-sm text-muted-foreground">Загрузка модулей...</p>
+							<p className="text-sm text-muted-foreground">
+								Загрузка модулей...
+							</p>
 						) : modules.length === 0 ? (
 							<p className="text-sm text-muted-foreground">
 								Модули не найдены. Создайте модули сначала.
@@ -266,9 +271,7 @@ export default function CreateCoursePage() {
 									className="space-y-4 rounded-lg border p-4"
 								>
 									<div className="flex items-center justify-between">
-										<h3 className="font-medium">
-											Вопрос {questionIndex + 1}
-										</h3>
+										<h3 className="font-medium">Вопрос {questionIndex + 1}</h3>
 										<Button
 											type="button"
 											variant="ghost"
@@ -297,13 +300,10 @@ export default function CreateCoursePage() {
 												onClick={() => {
 													const currentOptions =
 														watch(`questions.${questionIndex}.options`) || [];
-													setValue(
-														`questions.${questionIndex}.options`,
-														[
-															...currentOptions,
-															{ answerName: "", right: false },
-														],
-													);
+													setValue(`questions.${questionIndex}.options`, [
+														...currentOptions,
+														{ answerName: "", right: false },
+													]);
 												}}
 											>
 												<Plus className="size-4" />
@@ -347,9 +347,8 @@ export default function CreateCoursePage() {
 															size="icon"
 															onClick={() => {
 																const currentOptions =
-																	watch(
-																		`questions.${questionIndex}.options`,
-																	) || [];
+																	watch(`questions.${questionIndex}.options`) ||
+																	[];
 																setValue(
 																	`questions.${questionIndex}.options`,
 																	currentOptions.filter(
@@ -389,4 +388,3 @@ export default function CreateCoursePage() {
 		</div>
 	);
 }
-

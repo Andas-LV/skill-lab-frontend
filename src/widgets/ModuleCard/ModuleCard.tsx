@@ -14,10 +14,7 @@ interface ModuleCardProps {
 
 export function ModuleCard({ module }: ModuleCardProps) {
 	return (
-		<Link
-			href={routes.module(module.id ?? 0)}
-			className={styles.card}
-		>
+		<Link href={routes.module(module.id ?? 0)} className={styles.card}>
 			<div className={styles.content}>
 				<h3 className={styles.title}>
 					{module.title || `Модуль #${module.id}`}
@@ -38,4 +35,3 @@ export function ModuleCard({ module }: ModuleCardProps) {
 		</Link>
 	);
 }
-

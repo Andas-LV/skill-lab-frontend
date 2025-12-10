@@ -3,7 +3,11 @@ import { CourseCategory } from "@/shared/types/enums";
 
 export const courseSchema = z.object({
 	title: z.string().min(1, "Название курса обязательно"),
-	image: z.string().url("Некорректный URL изображения").optional().or(z.literal("")),
+	image: z
+		.string()
+		.url("Некорректный URL изображения")
+		.optional()
+		.or(z.literal("")),
 	description: z.string().optional(),
 	result: z
 		.array(
@@ -13,7 +17,10 @@ export const courseSchema = z.object({
 		)
 		.optional(),
 	link: z.string().url("Некорректный URL").optional().or(z.literal("")),
-	price: z.coerce.number().min(0, "Цена не может быть отрицательной").optional(),
+	price: z.coerce
+		.number()
+		.min(0, "Цена не может быть отрицательной")
+		.optional(),
 	category: z
 		.enum([
 			CourseCategory.ALL,
@@ -42,4 +49,3 @@ export const courseSchema = z.object({
 });
 
 export type CourseFormData = z.infer<typeof courseSchema>;
-

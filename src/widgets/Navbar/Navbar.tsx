@@ -68,9 +68,7 @@ export function Navbar() {
 								href={item.href}
 								className={cn(
 									"flex items-center space-x-2 text-sm font-medium transition-colors hover:text-primary",
-									isActive
-										? "text-foreground"
-										: "text-muted-foreground",
+									isActive ? "text-foreground" : "text-muted-foreground",
 								)}
 							>
 								{Icon && <Icon className="size-4" />}
@@ -84,7 +82,10 @@ export function Navbar() {
 					{isAuthenticated && user ? (
 						<DropdownMenu>
 							<DropdownMenuTrigger asChild>
-								<Button variant="ghost" className="relative size-8 rounded-full">
+								<Button
+									variant="ghost"
+									className="relative size-8 rounded-full"
+								>
 									<User className="size-4" />
 								</Button>
 							</DropdownMenuTrigger>
@@ -111,16 +112,16 @@ export function Navbar() {
 								</DropdownMenuItem>
 								{user?.role === UserRole.ADMIN && (
 									<DropdownMenuItem asChild>
-									<Link
-										href={routes.users()}
-										className="flex items-center space-x-2 cursor-pointer"
-									>
-										<Users className="size-4" />
-										<span>Пользователи</span>
-									</Link>
-								</DropdownMenuItem>
+										<Link
+											href={routes.users()}
+											className="flex items-center space-x-2 cursor-pointer"
+										>
+											<Users className="size-4" />
+											<span>Пользователи</span>
+										</Link>
+									</DropdownMenuItem>
 								)}
-								
+
 								<DropdownMenuSeparator />
 								<DropdownMenuItem
 									onClick={handleLogout}
@@ -141,4 +142,3 @@ export function Navbar() {
 		</nav>
 	);
 }
-

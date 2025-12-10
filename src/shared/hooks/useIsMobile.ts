@@ -14,7 +14,7 @@ function useMediaQuery(query: string): boolean {
 		// считывание текущего значения
 		() => window.matchMedia(query).matches,
 		// вариант для серверного рендера (где window нет)
-		() => false
+		() => false,
 	);
 }
 

@@ -17,7 +17,10 @@ import {
 	SelectTrigger,
 	SelectValue,
 } from "@/shared/components/ui/select";
-import { courseSchema, type CourseFormData } from "@/entities/course/courseSchema";
+import {
+	courseSchema,
+	type CourseFormData,
+} from "@/entities/course/courseSchema";
 import { courseService } from "@/entities/course/courseService";
 import { CourseCategory } from "@/shared/types/enums";
 import { routes } from "@/core/config/routes";
@@ -219,9 +222,7 @@ export default function CourseDetailPage() {
 							aria-invalid={errors.description ? "true" : "false"}
 						/>
 						{errors.description && (
-							<p className={styles.errorText}>
-								{errors.description.message}
-							</p>
+							<p className={styles.errorText}>{errors.description.message}</p>
 						)}
 					</div>
 
@@ -231,10 +232,7 @@ export default function CourseDetailPage() {
 							name="category"
 							control={control}
 							render={({ field }) => (
-								<Select
-									value={field.value}
-									onValueChange={field.onChange}
-								>
+								<Select value={field.value} onValueChange={field.onChange}>
 									<SelectTrigger>
 										<SelectValue placeholder="Выберите категорию" />
 									</SelectTrigger>
@@ -249,7 +247,9 @@ export default function CourseDetailPage() {
 										<SelectItem value={CourseCategory.MOBILE}>
 											Mobile
 										</SelectItem>
-										<SelectItem value={CourseCategory.DESIGN}>Design</SelectItem>
+										<SelectItem value={CourseCategory.DESIGN}>
+											Design
+										</SelectItem>
 									</SelectContent>
 								</Select>
 							)}
@@ -321,8 +321,8 @@ export default function CourseDetailPage() {
 									Подтверждение удаления
 								</h3>
 								<p className={styles.deleteConfirmText}>
-									Вы уверены, что хотите удалить этот курс? Это действие
-									нельзя отменить.
+									Вы уверены, что хотите удалить этот курс? Это действие нельзя
+									отменить.
 								</p>
 								<div className={styles.deleteConfirmActions}>
 									<Button
@@ -348,4 +348,3 @@ export default function CourseDetailPage() {
 		</>
 	);
 }
-

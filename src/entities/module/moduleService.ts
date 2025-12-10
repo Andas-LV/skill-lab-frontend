@@ -16,7 +16,9 @@ type UpdateModuleResponse =
 	paths["/modules/{id}"]["patch"]["responses"]["200"]["content"]["application/json"];
 
 export const moduleService = {
-	create: async (module: CreateModuleRequest): Promise<CreateModuleResponse> => {
+	create: async (
+		module: CreateModuleRequest,
+	): Promise<CreateModuleResponse> => {
 		const { data, error, response } = await openApiClient.POST("/modules/add", {
 			body: module,
 		});
@@ -40,11 +42,7 @@ export const moduleService = {
 		const { data, error, response } = await openApiClient.GET("/modules/list");
 
 		if (error) {
-			throw new Error(
-				error instanceof Error
-					? error.message
-					: `Failed to fetch modules: ${response.status}`,
-			);
+			console.error("Module list fetch error:", error);
 		}
 
 		if (!data) {
@@ -58,12 +56,15 @@ export const moduleService = {
 		id: number,
 		module: UpdateModuleRequest,
 	): Promise<UpdateModuleResponse> => {
-		const { data, error, response } = await openApiClient.PATCH("/modules/{id}", {
-			params: {
-				path: { id },
+		const { data, error, response } = await openApiClient.PATCH(
+			"/modules/{id}",
+			{
+				params: {
+					path: { id },
+				},
+				body: module,
 			},
-			body: module,
-		});
+		);
 
 		if (error) {
 			throw new Error(
@@ -88,12 +89,7 @@ export const moduleService = {
 		});
 
 		if (error) {
-			throw new Error(
-				error instanceof Error
-					? error.message
-					: `Module deletion failed: ${response.status}`,
-			);
+			console.error("Module delete fetch error:", error);
 		}
 	},
 };
-

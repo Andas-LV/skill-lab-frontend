@@ -87,11 +87,7 @@ export default function LoginPage() {
 						error={errors.password?.message}
 					/>
 
-					<Button
-						type="submit"
-						className="w-full"
-						disabled={isLoading}
-					>
+					<Button type="submit" className="w-full" disabled={isLoading}>
 						{isLoading ? "Вход..." : "Войти"}
 					</Button>
 				</form>
@@ -99,4 +95,3 @@ export default function LoginPage() {
 		</div>
 	);
 }
-

@@ -77,9 +77,7 @@ export default function CreateModulePage() {
 			<div className="w-full max-w-2xl space-y-6 rounded-lg border bg-card p-6 shadow-sm">
 				<div className="space-y-2 text-center">
 					<h1 className="text-2xl font-bold">Создание модуля</h1>
-					<p className="text-muted-foreground">
-						Заполните информацию о модуле
-					</p>
+					<p className="text-muted-foreground">Заполните информацию о модуле</p>
 				</div>
 
 				<form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
@@ -155,4 +153,3 @@ export default function CreateModulePage() {
 		</div>
 	);
 }
-

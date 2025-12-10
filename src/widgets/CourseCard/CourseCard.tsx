@@ -11,17 +11,10 @@ interface CourseCardProps {
 
 export function CourseCard({ course }: CourseCardProps) {
 	return (
-		<Link
-			href={routes.course(course.id ?? 0)}
-			className={styles.card}
-		>
+		<Link href={routes.course(course.id ?? 0)} className={styles.card}>
 			{course.image && (
 				<div className={styles.imageWrapper}>
-					<img
-						src={course.image}
-						alt={course.title}
-						className={styles.image}
-					/>
+					<img src={course.image} alt={course.title} className={styles.image} />
 				</div>
 			)}
 			<div className={styles.content}>
@@ -43,4 +36,3 @@ export function CourseCard({ course }: CourseCardProps) {
 		</Link>
 	);
 }
-
