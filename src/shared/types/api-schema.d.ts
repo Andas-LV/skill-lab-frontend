@@ -1552,6 +1552,11 @@ export interface components {
             id?: number;
             email?: string;
             username?: string;
+            /**
+             * @description Роль пользователя в системе
+             * @enum {string}
+             */
+            role?: "ADMIN" | "USER" | "TEACHER";
             /** Format: date-time */
             createdAt?: string;
             /** Format: date-time */
