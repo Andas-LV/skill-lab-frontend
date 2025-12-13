@@ -152,7 +152,13 @@ export default function UsersPage() {
 				) : (
 					<div className={styles.grid}>
 						{users.map((userItem) => (
-							<div key={userItem.id} className={styles.card}>
+							<div
+								key={userItem.id}
+								className={styles.card}
+								onClick={() =>
+									userItem.id && router.push(routes.user(userItem.id))
+								}
+							>
 								<div className={styles.cardHeader}>
 									<div className={styles.avatar}>
 										<UserIcon className="size-6" />

@@ -9,4 +9,5 @@ export const routes = {
 	course: (id: number | string) => `/courses/${id}`,
 	profile: () => "/profile",
 	users: () => "/users",
+	user: (id: number | string) => `/users/${id}`,
 };
