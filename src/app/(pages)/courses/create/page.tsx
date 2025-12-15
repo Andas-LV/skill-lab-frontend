@@ -265,107 +265,115 @@ export default function CreateCoursePage() {
 						</div>
 
 						<div className="space-y-6">
-							{questionFields.map((questionField, questionIndex) => (
-								<div
-									key={questionField.id}
-									className="space-y-4 rounded-lg border p-4"
-								>
-									<div className="flex items-center justify-between">
-										<h3 className="font-medium">Вопрос {questionIndex + 1}</h3>
-										<Button
-											type="button"
-											variant="ghost"
-											size="icon"
-											onClick={() => removeQuestion(questionIndex)}
-										>
-											<X className="size-4" />
-										</Button>
-									</div>
+							{questionFields.map((questionField, questionIndex) => {
+								const questionOptions =
+									watch(`questions.${questionIndex}.options`) || [];
 
-									<CustomInput
-										{...register(`questions.${questionIndex}.title`)}
-										label="Текст вопроса"
-										type="text"
-										required
-										error={errors.questions?.[questionIndex]?.title?.message}
-									/>
-
-									<div className="space-y-3">
+								return (
+									<div
+										key={questionField.id}
+										className="space-y-4 rounded-lg border bg-card p-4"
+									>
 										<div className="flex items-center justify-between">
-											<Label>Варианты ответов</Label>
+											<h3 className="font-medium">Вопрос {questionIndex + 1}</h3>
 											<Button
 												type="button"
-												variant="outline"
-												size="sm"
-												onClick={() => {
-													const currentOptions =
-														watch(`questions.${questionIndex}.options`) || [];
-													setValue(`questions.${questionIndex}.options`, [
-														...currentOptions,
-														{ answerName: "", right: false },
-													]);
-												}}
+												variant="ghost"
+												size="icon"
+												onClick={() => removeQuestion(questionIndex)}
 											>
-												<Plus className="size-4" />
-												Добавить вариант
+												<X className="size-4" />
 											</Button>
 										</div>
-										{questionField.options?.map((_, optionIndex) => (
-											<div
-												key={optionIndex}
-												className="flex items-center gap-2"
-											>
-												<Controller
-													control={control}
-													name={`questions.${questionIndex}.options.${optionIndex}.right`}
-													render={({ field }) => (
-														<Checkbox
-															checked={field.value}
-															onCheckedChange={field.onChange}
-														/>
-													)}
-												/>
-												<div className="flex-1">
-													<CustomInput
-														{...register(
-															`questions.${questionIndex}.options.${optionIndex}.answerName`,
-														)}
-														label={`Вариант ${optionIndex + 1}`}
-														type="text"
-														error={
-															errors.questions?.[questionIndex]?.options?.[
-																optionIndex
-															]?.answerName?.message
-														}
-													/>
-												</div>
-												{questionField.options &&
-													questionField.options.length > 2 && (
-														<Button
-															type="button"
-															variant="ghost"
-															size="icon"
-															onClick={() => {
-																const currentOptions =
-																	watch(`questions.${questionIndex}.options`) ||
-																	[];
-																setValue(
-																	`questions.${questionIndex}.options`,
-																	currentOptions.filter(
-																		(_, i) => i !== optionIndex,
-																	),
-																);
-															}}
-															className="shrink-0"
-														>
-															<X className="size-4" />
-														</Button>
-													)}
+
+										<CustomInput
+											{...register(`questions.${questionIndex}.title`)}
+											label="Текст вопроса"
+											type="text"
+											required
+											error={errors.questions?.[questionIndex]?.title?.message}
+										/>
+
+										<div className="space-y-3">
+											<div className="flex items-center justify-between">
+												<Label>Варианты ответов</Label>
+												<Button
+													type="button"
+													variant="outline"
+													size="sm"
+													onClick={() => {
+														setValue(`questions.${questionIndex}.options`, [
+															...questionOptions,
+															{ answerName: "", right: false },
+														]);
+													}}
+												>
+													<Plus className="size-4" />
+													Добавить вариант
+												</Button>
 											</div>
-										))}
+											{questionOptions.length === 0 && (
+												<p className="text-sm text-muted-foreground">
+													Добавьте варианты ответов
+												</p>
+											)}
+											<div className="space-y-2">
+												{questionOptions.map((_, optionIndex) => (
+													<div
+														key={optionIndex}
+														className="flex items-start gap-2"
+													>
+														<div className="pt-2">
+															<Controller
+																control={control}
+																name={`questions.${questionIndex}.options.${optionIndex}.right`}
+																render={({ field }) => (
+																	<Checkbox
+																		checked={field.value}
+																		onCheckedChange={field.onChange}
+																	/>
+																)}
+															/>
+														</div>
+														<div className="flex-1">
+															<CustomInput
+																{...register(
+																	`questions.${questionIndex}.options.${optionIndex}.answerName`,
+																)}
+																label={`Вариант ${optionIndex + 1}`}
+																type="text"
+																error={
+																	errors.questions?.[questionIndex]?.options?.[
+																		optionIndex
+																	]?.answerName?.message
+																}
+															/>
+														</div>
+														{questionOptions.length > 2 && (
+															<Button
+																type="button"
+																variant="ghost"
+																size="icon"
+																onClick={() => {
+																	setValue(
+																		`questions.${questionIndex}.options`,
+																		questionOptions.filter(
+																			(_, i) => i !== optionIndex,
+																		),
+																	);
+																}}
+																className="shrink-0 mt-2"
+															>
+																<X className="size-4" />
+															</Button>
+														)}
+													</div>
+												))}
+											</div>
+										</div>
 									</div>
-								</div>
-							))}
+								);
+							})}
 						</div>
 					</div>
 
